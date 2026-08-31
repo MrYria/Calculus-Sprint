@@ -6,12 +6,14 @@ import { generatePowersQuestion } from './math/power';
 import { generateDerivativesQuestion } from './math/derivatives';
 import type { MathQuestion, Topic } from './types/math';
 import { generateIntegralsQuestion } from './math/integrals';
+import { generateGraphsQuestion } from './math/graphs/index';
 
 const TOPICS: { id: Topic; label: string; icon: string }[] = [
   { id: 'arithmetic', label: 'Arithmetic', icon: '➕' },
   { id: 'powers', label: 'Powers & Log', icon: '⚡' },
   { id: 'derivatives', label: 'Derivatives', icon: '📐' },
-  { id: 'integrals', label: 'Integrals', icon: '∫' }
+  { id: 'integrals', label: 'Integrals', icon: '∫' },
+  { id: 'graphs', label: 'Graphs', icon : 'y=x'}
 ];
 
 export default function App() {
@@ -28,6 +30,8 @@ export default function App() {
         return generateDerivativesQuestion(diff);
       case 'integrals':
         return generateIntegralsQuestion(diff);
+      case 'graphs':
+        return generateGraphsQuestion(diff);
       default:
         return generateArithmeticQuestion(diff);
     }
