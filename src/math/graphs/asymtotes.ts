@@ -108,6 +108,27 @@ export const semicircleMaxYGenerator: IGraphProblemGenerator = {
     },
 }
 
+export const asymptotesSumGenerator: IGraphProblemGenerator = {
+    id: 'asymptotesSum',
+    minDifficulty: 4.0,
+    maxDifficulty: 5.0,
+    generate(difficulty: number): MathQuestion {
+        const c = generateRandomNumber(2,3);
+        const x_0 = generateRandomNumber(1,5);
+        let y_0 = generateRandomNumber(-4,6);
+        while (y_0 === 0) y_0 = generateRandomNumber(-4,6);
+        const d = c * x_0;
+        const a = c * y_0;
+        const m = generateRandomNumber(-9,9);
+        return {
+            id: crypto.randomUUID(),
+            latex: ` f(x) = \\frac{${a}x ${formatTerm(m)}}{${c}x ${formatTerm(-d)}}, \\quad \\text{find } x_{asymp} + y_{asymp} = ?`,
+            correctAnswer: x_0+y_0,
+            difficulty
+        };
+    },
+}
+
 
 export const asymptotesGenerator: IGraphProblemGenerator[] = [
     hyperbolaDiscontinuityGenerator,
@@ -115,5 +136,6 @@ export const asymptotesGenerator: IGraphProblemGenerator[] = [
     absVertexXGenerator,
     absVertexYGenerator,
     exponentialZeroGenerator,
-    semicircleMaxYGenerator
+    semicircleMaxYGenerator,
+    asymptotesSumGenerator
 ];
