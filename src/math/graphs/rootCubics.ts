@@ -4,7 +4,7 @@ import type { IGraphProblemGenerator } from './utils';
 
 
 export const sqrtDomainMinGenerator: IGraphProblemGenerator = {
-    id: 'sqrtDomainMin',
+    id: 'sqrt-Domain-Min',
     minDifficulty: 2.8,
     maxDifficulty: 3.6,
     generate(difficulty: number): MathQuestion {
@@ -22,7 +22,7 @@ export const sqrtDomainMinGenerator: IGraphProblemGenerator = {
 }
 
 export const cubicRootGenerator: IGraphProblemGenerator = {
-    id: 'cubicRoot',
+    id: 'cubic-Root',
     minDifficulty: 3.0,
     maxDifficulty: 4.0,
     generate(difficulty: number): MathQuestion {
@@ -39,7 +39,7 @@ export const cubicRootGenerator: IGraphProblemGenerator = {
 }
 
 export const sqrtEvalPointGenerator: IGraphProblemGenerator = {
-    id: 'sqrtEvalPoint',
+    id: 'sqrt-Eval-Point',
     minDifficulty: 3.0,
     maxDifficulty: 4.0,
     generate(difficulty: number): MathQuestion {
@@ -59,8 +59,8 @@ export const sqrtEvalPointGenerator: IGraphProblemGenerator = {
 
 export const twoModulusMinGenerator: IGraphProblemGenerator = {
     id: 'two-modulus-min',
-    minDifficulty: 4.0,
-    maxDifficulty: 5.0,
+    minDifficulty: 4.3,
+    maxDifficulty: 5.3,
     generate(difficulty: number): MathQuestion {
         const a = generateRandomNumber(-8, 2);
         const dist = generateRandomNumber(3, 9);
@@ -76,8 +76,8 @@ export const twoModulusMinGenerator: IGraphProblemGenerator = {
 
 export const scaledSqrtRootGenerator: IGraphProblemGenerator = {
     id: 'scaled-sqrt-root',
-    minDifficulty: 4.0,
-    maxDifficulty: 5.0,
+    minDifficulty: 4.5,
+    maxDifficulty: 5.5,
     generate(difficulty: number): MathQuestion {
         const k = generateRandomNumber(2, 7);
         const a = generateRandomNumber(2, 6);
@@ -94,8 +94,8 @@ export const scaledSqrtRootGenerator: IGraphProblemGenerator = {
 
 export const linearExponentRootGenerator: IGraphProblemGenerator = {
     id: 'linear-exponent-root',
-    minDifficulty: 4.0,
-    maxDifficulty: 5.0,
+    minDifficulty: 4.4,
+    maxDifficulty: 5.4,
     generate(difficulty: number): MathQuestion {
         const a = generateRandomNumber(2, 3);
         const x_0 = generateRandomNumber(1, 5);
@@ -114,8 +114,8 @@ export const linearExponentRootGenerator: IGraphProblemGenerator = {
 
 export const pythagoreanCircleIntersectionGenerator: IGraphProblemGenerator = {
     id: 'pythagorean-circle-intersection',
-    minDifficulty: 4.0,
-    maxDifficulty: 5.0,
+    minDifficulty: 4.2,
+    maxDifficulty: 5.2,
     generate(difficulty: number): MathQuestion {
         const m = generateRandomNumber(2, 4);
         const n = generateRandomNumber(1, m - 1);

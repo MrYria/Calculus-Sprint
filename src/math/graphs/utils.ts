@@ -12,6 +12,19 @@ export function formatTerm(coeff: number, powerStr: string = ''): string {
     return `${sign}${coeffStr}${powerStr} `;
 }
 
+export function generateNonZeroRandomNumber(
+    min: number,
+    max: number
+): number {
+    let value = generateRandomNumber(min, max);
+
+    while (value === 0) {
+        value = generateRandomNumber(min, max);
+    }
+
+    return value;
+}
+
 export interface IGraphProblemGenerator {
     readonly id: string,
     readonly minDifficulty: number,

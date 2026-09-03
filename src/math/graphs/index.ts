@@ -5,13 +5,15 @@ import type { MathQuestion, GraphFunctionType, GraphTaskType } from '../../types
 import { linearGenerators } from './linear';
 import { quadraticGenerators } from './quadratic';
 import { rootCubicsGenerators } from './rootCubics';
-import { asymptotesGenerator } from './asymtotes';
+import { asymptotesGenerator } from './asymptotes';
+import { trigLogsGenerator } from './trigLogs';
 
 const ALL_GRAPH_GENERATORS: IGraphProblemGenerator[] = [
     ...linearGenerators,
     ...quadraticGenerators,
     ...rootCubicsGenerators,
-    ...asymptotesGenerator
+    ...asymptotesGenerator,
+    ...trigLogsGenerator,
 ];
 
 export function generateGraphsQuestion(difficulty: number): MathQuestion {
