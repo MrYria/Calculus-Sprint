@@ -7,6 +7,7 @@ import { quadraticGenerators } from './quadratic';
 import { rootCubicsGenerators } from './rootCubics';
 import { asymptotesGenerator } from './asymptotes';
 import { trigLogsGenerator } from './trigLogs';
+import { extremaGenerator } from './extrema';
 
 const ALL_GRAPH_GENERATORS: IGraphProblemGenerator[] = [
     ...linearGenerators,
@@ -14,6 +15,7 @@ const ALL_GRAPH_GENERATORS: IGraphProblemGenerator[] = [
     ...rootCubicsGenerators,
     ...asymptotesGenerator,
     ...trigLogsGenerator,
+    ...extremaGenerator
 ];
 
 export function generateGraphsQuestion(difficulty: number): MathQuestion {
