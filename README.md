@@ -13,7 +13,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/calculus-sprint.git
+git clone https://github.com/MrYria/calculus-sprint.git
 
 # Install dependencies
 npm install
