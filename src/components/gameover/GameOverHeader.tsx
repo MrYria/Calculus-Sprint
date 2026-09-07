@@ -24,7 +24,7 @@ export function GameOverHeader ({
         style={{
           fontSize: '44px',
           fontWeight: '900',
-          color: '#60a5fa', // яскравий блакитний акцент
+          color: '#60a5fa', 
           textShadow: '0 0 24px rgba(96, 165, 250, 0.3)',
           letterSpacing: '-1px',
         }}

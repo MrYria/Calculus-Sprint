@@ -10,7 +10,7 @@ import { trigLogsGenerator } from './trigLogs';
 import { extremaGenerator } from './extrema';
 import { conicsGenerator } from './conics';
 
-const ALL_GRAPH_GENERATORS: IGraphProblemGenerator[] = [
+export const ALL_GRAPH_GENERATORS: IGraphProblemGenerator[] = [
     ...linearGenerators,
     ...quadraticGenerators,
     ...rootCubicsGenerators,
