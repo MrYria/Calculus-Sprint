@@ -12,23 +12,7 @@ function formatTerm(coeff: number, powerStr: string = ''): string {
     return `${sign}${coeffStr}${powerStr} `;
 }
 
-function formatPolynomialTerms(terms: { coeff: number; power: string }[]): string {
-  const nonZero = terms.filter((t) => t.coeff !== 0);
-  if (nonZero.length === 0) return '0';
 
-  return nonZero
-    .map((t, idx) => {
-      const abs = Math.abs(t.coeff);
-      const coeffStr = abs === 1 && t.power !== '' ? '' : abs;
-      const termStr = `${coeffStr}${t.power}`;
-
-      if (idx === 0) {
-        return t.coeff < 0 ? `-${termStr}` : termStr;
-      }
-      return t.coeff > 0 ? `+ ${termStr}` : `- ${termStr}`;
-    })
-    .join(' ');
-}
 
 export function generateIntegralsQuestion(difficulty: number): MathQuestion {
   let answer = 0;

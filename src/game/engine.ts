@@ -1,9 +1,9 @@
 import type { Topic, MathQuestion } from '../types/math';
-import { generateArithmeticQuestion } from '../math/arithmetic';
+import { generateArithmeticQuestion } from '../math/arithmetic/';
 import { generatePowersQuestion } from '../math/power';
 import { generateDerivativesQuestion } from '../math/derivatives';
 import { generateIntegralsQuestion } from '../math/integrals';
-import { generateGraphsQuestion } from '../math/graphs';
+import { generateGraphsQuestion } from '../math/graphs/';
 import { generateRandomNumber } from '../helper/utils';
 
 export function getMathQuestion(topic: Topic | 'all_mix', difficulty: number): MathQuestion {
