@@ -1,6 +1,6 @@
 import type { MathQuestion, GraphFunctionType, GraphTaskType } from '../../types/math';
-import { generateRandomNumber, formatTerm, generateNonZeroRandomNumber } from './utils';
-import type { IGraphProblemGenerator } from './utils';
+import { generateRandomNumber, formatTerm, generateNonZeroRandomNumber } from '../../helper/utils';
+import type { IGraphProblemGenerator } from '../../helper/utils';
 
 export const paramVertexGivenGenerator: IGraphProblemGenerator = {
     id: 'param-vertex-given',

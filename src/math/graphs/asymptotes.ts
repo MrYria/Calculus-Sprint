@@ -1,6 +1,6 @@
 import type { MathQuestion, GraphFunctionType, GraphTaskType } from '../../types/math';
-import { generateRandomNumber, formatTerm } from './utils';
-import type { IGraphProblemGenerator } from './utils';
+import { generateRandomNumber, formatTerm } from '../../helper/utils';
+import type { IGraphProblemGenerator } from '../../helper/utils';
 
 export const hyperbolaDiscontinuityGenerator: IGraphProblemGenerator = {
     id: 'hyperbolaDiscontinuity',

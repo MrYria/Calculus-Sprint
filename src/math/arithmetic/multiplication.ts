@@ -1,6 +1,6 @@
 import type { MathQuestion } from '../../types/math';
 import type { IArithmeticProblemGenerator } from '../../helper/utils';
-import { generateRandomNumber } from '../graphs/utils';
+import { generateRandomNumber } from '../../helper/utils';
 
 export const tableMultiplicationGenerator: IArithmeticProblemGenerator = {
     id: 'table-multiplication',

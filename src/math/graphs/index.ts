@@ -1,5 +1,5 @@
-import {generateRandomNumber} from './utils';
-import type {IGraphProblemGenerator} from './utils';
+import {generateRandomNumber} from '../../helper/utils';
+import type {IGraphProblemGenerator} from '../../helper/utils';
 import type { MathQuestion, GraphFunctionType, GraphTaskType } from '../../types/math';
 
 import { linearGenerators } from './linear';
