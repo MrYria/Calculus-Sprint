@@ -16,7 +16,7 @@ function formatTerm(coeff: number, powerStr: string = ''): string {
 export function generateDerivativesQuestion(difficulty: number): MathQuestion {
   let answer = 0;
   let latex = '';
-
+  
   if (difficulty < 2) {
     const roll = generateRandomNumber(0, 2);
     const x0 = generateRandomNumber(1, 5);

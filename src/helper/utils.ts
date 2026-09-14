@@ -1,4 +1,4 @@
-import type { MathQuestion, GraphFunctionType, GraphTaskType, OperationType, PowerType } from '../types/math';
+import type { MathQuestion, GraphFunctionType, GraphTaskType, OperationType, PowerType, DerivatesType } from '../types/math';
 
 export function generateRandomNumber(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -79,5 +79,13 @@ export interface IArithmeticProblemGenerator {
     readonly minDifficulty: number,
     readonly maxDifficulty: number,
     readonly taskType?: OperationType;
+    generate(difficulty: number): MathQuestion
+}
+
+export interface IDerivativesProblemsGenerator {
+    readonly id: string,
+    readonly minDifficulty: number,
+    readonly maxDifficulty: number,
+    readonly taskType?: DerivatesType;
     generate(difficulty: number): MathQuestion
 }

@@ -14,17 +14,34 @@ export const ALL_ARITHMETIC_GENERATORS: IArithmeticProblemGenerator[] = [
     ...divisionGenerators,
 ];
 
-export function generateArithmeticQuestion(difficulty: number): MathQuestion {
-  let availableGenerators = ALL_ARITHMETIC_GENERATORS.filter(
-    (par) => difficulty >= par.minDifficulty && difficulty <= par.maxDifficulty
-  );
+function getClosestGenerator(
+  generators: IArithmeticProblemGenerator[], 
+  difficulty: number
+): IArithmeticProblemGenerator {
+  return generators.reduce((prev, curr) => {
+    const distPrev = Math.max(0, prev.minDifficulty - difficulty, difficulty - prev.maxDifficulty);
+    const distCurr = Math.max(0, curr.minDifficulty - difficulty, difficulty - curr.maxDifficulty);
+    return distCurr < distPrev ? curr : prev;
+  });
+}
 
-  if (availableGenerators.length === 0) {
-    availableGenerators = ALL_ARITHMETIC_GENERATORS;
+export function generateArithmeticQuestion(difficulty: number): MathQuestion {
+  if (ALL_ARITHMETIC_GENERATORS.length === 0) {
+    throw new Error("No power generators available");
   }
 
-  const selectedGenerator =
-    availableGenerators[generateRandomNumber(0, availableGenerators.length - 1)];
+  const available = ALL_ARITHMETIC_GENERATORS.filter(
+    (g) => difficulty >= g.minDifficulty && difficulty <= g.maxDifficulty
+  );
 
-  return selectedGenerator.generate(difficulty);
+  const selected = available.length > 0
+    ? available[generateRandomNumber(0, available.length - 1)]
+    : getClosestGenerator(ALL_ARITHMETIC_GENERATORS, difficulty);
+
+  const safeDifficulty = Math.min(
+    Math.max(difficulty, selected.minDifficulty),
+    selected.maxDifficulty
+  );
+
+  return selected.generate(safeDifficulty);
 }

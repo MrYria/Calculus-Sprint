@@ -1,21 +1,19 @@
 import type { MathQuestion } from '../../types/math';
 import { generateRandomNumber } from '../../helper/utils';
-import type { IPowersProblemGenerator } from '../../helper/utils';
+import type { IDerivativesProblemsGenerator } from '../../helper/utils';
 
-import { powersGenerators } from './powers';
-import { rootsGenerators } from './roots';
-import { logarithmGenerators } from './logarithm';
+import { polynomialDerivatives } from './polynomials';
 
-export const ALL_POWER_GENERATORS: IPowersProblemGenerator[] = [
-  ...powersGenerators,
-  ...rootsGenerators,
-  ...logarithmGenerators,
+
+export const ALL_POWER_GENERATORS: IDerivativesProblemsGenerator[] = [
+  ...polynomialDerivatives,
+  
 ];
 
 function getClosestGenerator(
-  generators: IPowersProblemGenerator[], 
+  generators: IDerivativesProblemsGenerator[], 
   difficulty: number
-): IPowersProblemGenerator {
+): IDerivativesProblemsGenerator {
   return generators.reduce((prev, curr) => {
     const distPrev = Math.max(0, prev.minDifficulty - difficulty, difficulty - prev.maxDifficulty);
     const distCurr = Math.max(0, curr.minDifficulty - difficulty, difficulty - curr.maxDifficulty);
@@ -23,7 +21,7 @@ function getClosestGenerator(
   });
 }
 
-export function generatePowersQuestion(difficulty: number): MathQuestion {
+export function generateDerivativesQuestion(difficulty: number): MathQuestion {
   if (ALL_POWER_GENERATORS.length === 0) {
     throw new Error("No power generators available");
   }
