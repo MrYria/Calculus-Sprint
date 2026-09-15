@@ -3,10 +3,14 @@ import { generateRandomNumber } from '../../helper/utils';
 import type { IDerivativesProblemsGenerator } from '../../helper/utils';
 
 import { polynomialDerivatives } from './polynomials';
+import { trigonometryDerivatives } from './trigonometry';
+import { expLogRootsDerivatives } from './expLogRoots';
 
 
 export const ALL_POWER_GENERATORS: IDerivativesProblemsGenerator[] = [
   ...polynomialDerivatives,
+  ...trigonometryDerivatives,
+  ...expLogRootsDerivatives,
   
 ];
 

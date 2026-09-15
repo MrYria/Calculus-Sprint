@@ -66,7 +66,7 @@ export const quadraticCubicDerivativeGenerator: IDerivativesProblemsGenerator = 
         const aStr = a === 1 ? 'x^3' : `${a}x^3`;
         return {
             id: crypto.randomUUID(),
-            latex: `f(x) = ${aStr} ${formatTerm(b, 'x')}, \\quad f'(${x0}) = ?`,
+            latex: `f(x) = ${aStr} ${formatTerm(b, 'x')}, \\quad f'(${x_0}) = ?`,
             correctAnswer: 3 * a * (x_0 * x_0) + b,
             difficulty
         };
