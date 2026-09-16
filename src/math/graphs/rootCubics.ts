@@ -1,9 +1,9 @@
 import type { MathQuestion, GraphFunctionType, GraphTaskType } from '../../types/math';
 import { generateRandomNumber, formatTerm } from '../../helper/utils';
-import type { IGraphProblemGenerator } from '../../helper/utils';
+import type { IGraphGenerator } from '../../types/generators';
 
 
-export const sqrtDomainMinGenerator: IGraphProblemGenerator = {
+export const sqrtDomainMinGenerator: IGraphGenerator = {
     id: 'sqrt-Domain-Min',
     minDifficulty: 2.8,
     maxDifficulty: 3.6,
@@ -21,7 +21,7 @@ export const sqrtDomainMinGenerator: IGraphProblemGenerator = {
     }
 }
 
-export const cubicRootGenerator: IGraphProblemGenerator = {
+export const cubicRootGenerator: IGraphGenerator = {
     id: 'cubic-Root',
     minDifficulty: 3.0,
     maxDifficulty: 4.0,
@@ -38,7 +38,7 @@ export const cubicRootGenerator: IGraphProblemGenerator = {
     }
 }
 
-export const sqrtEvalPointGenerator: IGraphProblemGenerator = {
+export const sqrtEvalPointGenerator: IGraphGenerator = {
     id: 'sqrt-Eval-Point',
     minDifficulty: 3.0,
     maxDifficulty: 4.0,
@@ -57,7 +57,7 @@ export const sqrtEvalPointGenerator: IGraphProblemGenerator = {
     }
 }
 
-export const twoModulusMinGenerator: IGraphProblemGenerator = {
+export const twoModulusMinGenerator: IGraphGenerator = {
     id: 'two-modulus-min',
     minDifficulty: 4.3,
     maxDifficulty: 5.3,
@@ -74,7 +74,7 @@ export const twoModulusMinGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const scaledSqrtRootGenerator: IGraphProblemGenerator = {
+export const scaledSqrtRootGenerator: IGraphGenerator = {
     id: 'scaled-sqrt-root',
     minDifficulty: 4.5,
     maxDifficulty: 5.5,
@@ -92,7 +92,7 @@ export const scaledSqrtRootGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const linearExponentRootGenerator: IGraphProblemGenerator = {
+export const linearExponentRootGenerator: IGraphGenerator = {
     id: 'linear-exponent-root',
     minDifficulty: 4.4,
     maxDifficulty: 5.4,
@@ -112,7 +112,7 @@ export const linearExponentRootGenerator: IGraphProblemGenerator = {
     }
 }
 
-export const pythagoreanCircleIntersectionGenerator: IGraphProblemGenerator = {
+export const pythagoreanCircleIntersectionGenerator: IGraphGenerator = {
     id: 'pythagorean-circle-intersection',
     minDifficulty: 4.2,
     maxDifficulty: 5.2,
@@ -138,7 +138,7 @@ export const pythagoreanCircleIntersectionGenerator: IGraphProblemGenerator = {
     },
 };
 
-export const rootCubicsGenerators: IGraphProblemGenerator[] = [
+export const rootCubicsGenerators: IGraphGenerator[] = [
     sqrtDomainMinGenerator,
     cubicRootGenerator,
     sqrtEvalPointGenerator,

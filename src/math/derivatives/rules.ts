@@ -1,8 +1,8 @@
 import type { MathQuestion } from '../../types/math';
 import { generateRandomNumber, formatTerm } from '../../helper/utils';
-import type { IDerivativesProblemsGenerator } from '../../helper/utils';
+import type { IDerivativeGenerator } from '../../types/generators';
 
-export const productRuleDerivativeGenerator : IDerivativesProblemsGenerator = {
+export const productRuleDerivativeGenerator : IDerivativeGenerator = {
     id : 'derivative-product-rule',
     minDifficulty: 5.6,
     maxDifficulty: 7.0,
@@ -21,7 +21,7 @@ export const productRuleDerivativeGenerator : IDerivativesProblemsGenerator = {
     },
 }
 
-export const quotientRuleDerivativeGenerator: IDerivativesProblemsGenerator = {
+export const quotientRuleDerivativeGenerator: IDerivativeGenerator = {
     id : 'derivative-quotient-rule',
     minDifficulty: 5.8,
     maxDifficulty: 7.0,
@@ -39,7 +39,7 @@ export const quotientRuleDerivativeGenerator: IDerivativesProblemsGenerator = {
     },
 }
 
-export const chainRuleCubeDerivativeGenerator: IDerivativesProblemsGenerator = {
+export const chainRuleCubeDerivativeGenerator: IDerivativeGenerator = {
     id : 'derivative-chain-rule-cube',
     minDifficulty: 5.8,
     maxDifficulty: 7.2,
@@ -58,7 +58,7 @@ export const chainRuleCubeDerivativeGenerator: IDerivativesProblemsGenerator = {
 }
 
 
-export const rulesDerivatives: IDerivativesProblemsGenerator[] = [
+export const rulesDerivatives: IDerivativeGenerator[] = [
   productRuleDerivativeGenerator,
   quotientRuleDerivativeGenerator,
   chainRuleCubeDerivativeGenerator,

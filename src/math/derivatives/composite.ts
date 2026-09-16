@@ -1,8 +1,8 @@
 import type { MathQuestion } from '../../types/math';
 import { generateRandomNumber, formatTerm, generateNonZeroRandomNumber } from '../../helper/utils';
-import type { IDerivativesProblemsGenerator } from '../../helper/utils';
+import type { IDerivativeGenerator } from '../../types/generators';
 
-export const quotientExpCompositeGenerator: IDerivativesProblemsGenerator = {
+export const quotientExpCompositeGenerator: IDerivativeGenerator = {
     id: 'derivative-quotient-exp',
     minDifficulty: 6.2,
     maxDifficulty: 8.0,
@@ -19,7 +19,7 @@ export const quotientExpCompositeGenerator: IDerivativesProblemsGenerator = {
     },
 }
 
-export const rootQuadraticCompositeGenerator: IDerivativesProblemsGenerator = {
+export const rootQuadraticCompositeGenerator: IDerivativeGenerator = {
     id: 'derivative-root-quadratic',
     minDifficulty: 6.4,
     maxDifficulty: 8.0,
@@ -38,7 +38,7 @@ export const rootQuadraticCompositeGenerator: IDerivativesProblemsGenerator = {
     },
 }
 
-export const productExpCompositeGenerator: IDerivativesProblemsGenerator = {
+export const productExpCompositeGenerator: IDerivativeGenerator = {
     id: 'derivative-product-exp',
     minDifficulty: 6.5,
     maxDifficulty: 8.0,
@@ -56,7 +56,7 @@ export const productExpCompositeGenerator: IDerivativesProblemsGenerator = {
     },
 }
 
-export const quotientTrigCompositeGenerator: IDerivativesProblemsGenerator = {
+export const quotientTrigCompositeGenerator: IDerivativeGenerator = {
     id: 'derivative-quotient-trig',
     minDifficulty: 6.8,
     maxDifficulty: 8.0,
@@ -74,7 +74,7 @@ export const quotientTrigCompositeGenerator: IDerivativesProblemsGenerator = {
     },
 }
 
-export const chainQuadraticCubeCompositeGenerator: IDerivativesProblemsGenerator = {
+export const chainQuadraticCubeCompositeGenerator: IDerivativeGenerator = {
     id: 'derivative-chain-quadratic-cube',
     minDifficulty: 6.7,
     maxDifficulty: 8.0,
@@ -92,7 +92,7 @@ export const chainQuadraticCubeCompositeGenerator: IDerivativesProblemsGenerator
     },
 }
 
-export const complexExpLinearCompositeGenerator: IDerivativesProblemsGenerator = {
+export const complexExpLinearCompositeGenerator: IDerivativeGenerator = {
     id: 'derivative-complex-exp-linear',
     minDifficulty: 6.2,
     maxDifficulty: 8.0,
@@ -111,7 +111,7 @@ export const complexExpLinearCompositeGenerator: IDerivativesProblemsGenerator =
 }
 
 
-export const compositeDerivatives: IDerivativesProblemsGenerator[] = [
+export const compositeDerivatives: IDerivativeGenerator[] = [
     quotientExpCompositeGenerator,
     rootQuadraticCompositeGenerator,
     productExpCompositeGenerator,

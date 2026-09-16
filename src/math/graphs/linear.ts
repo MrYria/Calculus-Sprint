@@ -1,9 +1,9 @@
 import { generateNonZeroRandomNumber } from '../../helper/utils';
 import type { MathQuestion, GraphFunctionType, GraphTaskType } from '../../types/math';
 import {generateRandomNumber, formatTerm} from '../../helper/utils';
-import type {IGraphProblemGenerator} from '../../helper/utils';
+import type { IGraphGenerator } from '../../types/generators';
 
-export const linearYInterceptGenerator: IGraphProblemGenerator = {
+export const linearYInterceptGenerator: IGraphGenerator = {
     id: 'linear-y-intercept',
     minDifficulty: 1.0,
     maxDifficulty: 2.0,
@@ -20,7 +20,7 @@ export const linearYInterceptGenerator: IGraphProblemGenerator = {
     },
 };
 
-export const linearSlopeGenerator: IGraphProblemGenerator = {
+export const linearSlopeGenerator: IGraphGenerator = {
     id: 'linear-slope',
     minDifficulty: 1.0,
     maxDifficulty: 2.2,
@@ -36,7 +36,7 @@ export const linearSlopeGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const linearRootGenerator: IGraphProblemGenerator = {
+export const linearRootGenerator: IGraphGenerator = {
     id: 'linear-root',
     minDifficulty: 1.2,
     maxDifficulty: 2.5,
@@ -53,7 +53,7 @@ export const linearRootGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const linearEvalXGenerator: IGraphProblemGenerator = {
+export const linearEvalXGenerator: IGraphGenerator = {
     id: 'linear-eval-x',
     minDifficulty: 1.0,
     maxDifficulty: 2.0,
@@ -70,7 +70,7 @@ export const linearEvalXGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const linearFindXByYGenerator: IGraphProblemGenerator = {
+export const linearFindXByYGenerator: IGraphGenerator = {
     id: 'linear-find-x-by-y',
     minDifficulty: 1.2,
     maxDifficulty: 2.2,
@@ -88,7 +88,7 @@ export const linearFindXByYGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const linesIntersectionGenerator: IGraphProblemGenerator = {
+export const linesIntersectionGenerator: IGraphGenerator = {
     id: 'lines-intersection',
     minDifficulty: 2.2,
     maxDifficulty: 3.4,
@@ -108,7 +108,7 @@ export const linesIntersectionGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const linearGenerators: IGraphProblemGenerator[] = [
+export const linearGenerators: IGraphGenerator[] = [
   linearYInterceptGenerator,
   linearSlopeGenerator,
   linearRootGenerator,

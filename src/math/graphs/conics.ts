@@ -1,8 +1,8 @@
 import type { MathQuestion, GraphFunctionType, GraphTaskType } from '../../types/math';
 import { generateRandomNumber, formatTerm, generateNonZeroRandomNumber } from '../../helper/utils';
-import type { IGraphProblemGenerator } from '../../helper/utils';
+import type { IGraphGenerator } from '../../types/generators';
 
-export const paramVertexGivenGenerator: IGraphProblemGenerator = {
+export const paramVertexGivenGenerator: IGraphGenerator = {
     id: 'param-vertex-given',
     minDifficulty: 7.0,
     maxDifficulty: 8.0,
@@ -19,7 +19,7 @@ export const paramVertexGivenGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const paramTangentRootGenerator: IGraphProblemGenerator = {
+export const paramTangentRootGenerator: IGraphGenerator = {
     id: 'param-tangent-root',
     minDifficulty: 7.2,
     maxDifficulty: 8.0,
@@ -36,7 +36,7 @@ export const paramTangentRootGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const ellipseSemiAxisGenerator: IGraphProblemGenerator = {
+export const ellipseSemiAxisGenerator: IGraphGenerator = {
     id: 'ellipse-semi-axis',
     minDifficulty: 7.0,
     maxDifficulty: 8.0,
@@ -54,7 +54,7 @@ export const ellipseSemiAxisGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const circleRadiusGenerator: IGraphProblemGenerator = {
+export const circleRadiusGenerator: IGraphGenerator = {
     id: 'circle-radius',
     minDifficulty: 7.3,
     maxDifficulty: 8.0,
@@ -72,7 +72,7 @@ export const circleRadiusGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const hyperbolaAsymptoteSlopeGenerator: IGraphProblemGenerator = {
+export const hyperbolaAsymptoteSlopeGenerator: IGraphGenerator = {
     id: 'hyperbola-asymptote-slope',
     minDifficulty: 7.3,
     maxDifficulty: 8.0,
@@ -91,7 +91,7 @@ export const hyperbolaAsymptoteSlopeGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const trigGeneralRootsGenerator: IGraphProblemGenerator = {
+export const trigGeneralRootsGenerator: IGraphGenerator = {
     id: 'trig-general-roots',
     minDifficulty: 7.5,
     maxDifficulty: 8.0,
@@ -109,7 +109,7 @@ export const trigGeneralRootsGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const conicsGenerator: IGraphProblemGenerator[] = [
+export const conicsGenerator: IGraphGenerator[] = [
     paramVertexGivenGenerator,
     paramTangentRootGenerator,
     ellipseSemiAxisGenerator,

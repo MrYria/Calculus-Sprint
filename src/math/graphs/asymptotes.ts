@@ -1,8 +1,8 @@
 import type { MathQuestion, GraphFunctionType, GraphTaskType } from '../../types/math';
 import { generateRandomNumber, formatTerm } from '../../helper/utils';
-import type { IGraphProblemGenerator } from '../../helper/utils';
+import type { IGraphGenerator } from '../../types/generators';
 
-export const hyperbolaDiscontinuityGenerator: IGraphProblemGenerator = {
+export const hyperbolaDiscontinuityGenerator: IGraphGenerator = {
     id: 'hyperbolaDiscontinuity',
     minDifficulty: 3.2,
     maxDifficulty: 4.2,
@@ -20,7 +20,7 @@ export const hyperbolaDiscontinuityGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const hyperbolaHorizAsymptoteGenerator: IGraphProblemGenerator = {
+export const hyperbolaHorizAsymptoteGenerator: IGraphGenerator = {
     id: 'hyperbolaHorizAsymptote',
     minDifficulty: 3.2,
     maxDifficulty: 4.2,
@@ -38,7 +38,7 @@ export const hyperbolaHorizAsymptoteGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const absVertexXGenerator: IGraphProblemGenerator = {
+export const absVertexXGenerator: IGraphGenerator = {
     id: 'absVertex-X',
     minDifficulty: 3.2,
     maxDifficulty: 4.2,
@@ -55,7 +55,7 @@ export const absVertexXGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const absVertexYGenerator: IGraphProblemGenerator = {
+export const absVertexYGenerator: IGraphGenerator = {
     id: 'absVertexY',
     minDifficulty: 3.2,
     maxDifficulty: 4.2,
@@ -74,7 +74,7 @@ export const absVertexYGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const exponentialZeroGenerator: IGraphProblemGenerator = {
+export const exponentialZeroGenerator: IGraphGenerator = {
     id: 'exponentialZero',
     minDifficulty: 4.0,
     maxDifficulty: 5.0,
@@ -92,7 +92,7 @@ export const exponentialZeroGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const semicircleMaxYGenerator: IGraphProblemGenerator = {
+export const semicircleMaxYGenerator: IGraphGenerator = {
     id: 'semicircle-Max-Y',
     minDifficulty: 4.0,
     maxDifficulty: 5.0,
@@ -108,7 +108,7 @@ export const semicircleMaxYGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const asymptotesSumGenerator: IGraphProblemGenerator = {
+export const asymptotesSumGenerator: IGraphGenerator = {
     id: 'asymptotesSum',
     minDifficulty: 4.0,
     maxDifficulty: 5.0,
@@ -130,7 +130,7 @@ export const asymptotesSumGenerator: IGraphProblemGenerator = {
 }
 
 
-export const asymptotesGenerator: IGraphProblemGenerator[] = [
+export const asymptotesGenerator: IGraphGenerator[] = [
     hyperbolaDiscontinuityGenerator,
     hyperbolaHorizAsymptoteGenerator,
     absVertexXGenerator,

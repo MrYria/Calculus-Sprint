@@ -1,6 +1,6 @@
 import type { MathQuestion } from '../../types/math';
 import { generateRandomNumber } from '../../helper/utils';
-import type { IDerivativesProblemsGenerator } from '../../helper/utils';
+import type { IDerivativeGenerator } from '../../types/generators';
 
 import { polynomialDerivatives } from './polynomials';
 import { trigonometryDerivatives } from './trigonometry';
@@ -9,7 +9,7 @@ import { rulesDerivatives } from './rules';
 import { compositeDerivatives } from './composite';
 
 
-export const ALL_DERIVATIVE_GENERATORS: IDerivativesProblemsGenerator[] = [
+export const ALL_DERIVATIVE_GENERATORS: IDerivativeGenerator[] = [
   ...polynomialDerivatives,
   ...trigonometryDerivatives,
   ...expLogRootsDerivatives,
@@ -18,9 +18,9 @@ export const ALL_DERIVATIVE_GENERATORS: IDerivativesProblemsGenerator[] = [
 ];
 
 function getClosestGenerator(
-  generators: IDerivativesProblemsGenerator[], 
+  generators: IDerivativeGenerator[], 
   difficulty: number
-): IDerivativesProblemsGenerator {
+): IDerivativeGenerator {
   return generators.reduce((prev, curr) => {
     const distPrev = Math.max(0, prev.minDifficulty - difficulty, difficulty - prev.maxDifficulty);
     const distCurr = Math.max(0, curr.minDifficulty - difficulty, difficulty - curr.maxDifficulty);

@@ -1,8 +1,8 @@
 import type { MathQuestion } from '../../types/math';
 import { generateRandomNumber, formatTerm } from '../../helper/utils';
-import type { IDerivativesProblemsGenerator } from '../../helper/utils';
+import type { IDerivativeGenerator } from '../../types/generators';
 
-export const basicExpLogRootsDerivativeGenerator: IDerivativesProblemsGenerator = {
+export const basicExpLogRootsDerivativeGenerator: IDerivativeGenerator = {
     id: 'derivative-basic-exp-log-roots',
     minDifficulty: 3.5,
     maxDifficulty: 5.2,
@@ -42,7 +42,7 @@ export const basicExpLogRootsDerivativeGenerator: IDerivativesProblemsGenerator 
     },
 }
 
-export const expLogCombinationDerivativeGenerator: IDerivativesProblemsGenerator = {
+export const expLogCombinationDerivativeGenerator: IDerivativeGenerator = {
     id: 'derivative-exp-log-combination',
     minDifficulty: 4.8,
     maxDifficulty: 6.2,
@@ -74,7 +74,7 @@ export const expLogCombinationDerivativeGenerator: IDerivativesProblemsGenerator
     },
 }
 
-export const expLogRootsDerivatives: IDerivativesProblemsGenerator[] = [
+export const expLogRootsDerivatives: IDerivativeGenerator[] = [
     basicExpLogRootsDerivativeGenerator,
     expLogCombinationDerivativeGenerator,
 ];

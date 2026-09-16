@@ -1,8 +1,8 @@
 import type { MathQuestion, GraphFunctionType, GraphTaskType } from '../../types/math';
 import {generateRandomNumber, formatTerm} from '../../helper/utils';
-import type {IGraphProblemGenerator} from '../../helper/utils';
+import type { IGraphGenerator } from '../../types/generators';
 
-export const parabolaVertexXGenerator: IGraphProblemGenerator = {
+export const parabolaVertexXGenerator: IGraphGenerator = {
     id: 'parabolaVertexX',
     minDifficulty: 1.8,
     maxDifficulty: 2.8,
@@ -20,7 +20,7 @@ export const parabolaVertexXGenerator: IGraphProblemGenerator = {
     },
 };
 
-export const quadraticRootsGenerator: IGraphProblemGenerator = {
+export const quadraticRootsGenerator: IGraphGenerator = {
     id: 'quadraticRoots',
     minDifficulty: 2.0,
     maxDifficulty: 3.2,
@@ -41,7 +41,7 @@ export const quadraticRootsGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const quadraticYInterceptGenerator: IGraphProblemGenerator = {
+export const quadraticYInterceptGenerator: IGraphGenerator = {
     id: 'quadratic-Y-intercept',
     minDifficulty: 1.8,
     maxDifficulty: 2.6,
@@ -59,7 +59,7 @@ export const quadraticYInterceptGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const parabolaRangeBoundGenerator: IGraphProblemGenerator = {
+export const parabolaRangeBoundGenerator: IGraphGenerator = {
     id: 'parabolaRangeBound',
     minDifficulty: 2.0,
     maxDifficulty: 3.0,
@@ -79,7 +79,7 @@ export const parabolaRangeBoundGenerator: IGraphProblemGenerator = {
 }
 
 
-export const parabolaVertexYGenerator: IGraphProblemGenerator = {
+export const parabolaVertexYGenerator: IGraphGenerator = {
     id: 'parabola-Vertex-Y',
     minDifficulty: 2.8,
     maxDifficulty: 3.8,
@@ -98,7 +98,7 @@ export const parabolaVertexYGenerator: IGraphProblemGenerator = {
     },
 };
 
-export const parabolaRootsDistanceGenerator: IGraphProblemGenerator = {
+export const parabolaRootsDistanceGenerator: IGraphGenerator = {
     id: 'parabolaRootsDistance',
     minDifficulty: 3.0,
     maxDifficulty: 4.0,
@@ -117,7 +117,7 @@ export const parabolaRootsDistanceGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const parabolaSignBoundaryGenerator: IGraphProblemGenerator = {
+export const parabolaSignBoundaryGenerator: IGraphGenerator = {
     id: 'parabolaSignBoundary',
     minDifficulty: 3.2,
     maxDifficulty: 4.2,
@@ -136,7 +136,7 @@ export const parabolaSignBoundaryGenerator: IGraphProblemGenerator = {
     }
 }
 
-export const quadraticGenerators: IGraphProblemGenerator[] = [
+export const quadraticGenerators: IGraphGenerator[] = [
   quadraticYInterceptGenerator,
   parabolaVertexXGenerator,
   quadraticRootsGenerator,

@@ -1,5 +1,5 @@
 import {generateRandomNumber} from '../../helper/utils';
-import type {IGraphProblemGenerator} from '../../helper/utils';
+import type { IGraphGenerator } from '../../types/generators';
 import type { MathQuestion, GraphFunctionType, GraphTaskType } from '../../types/math';
 
 import { linearGenerators } from './linear';
@@ -10,7 +10,7 @@ import { trigLogsGenerator } from './trigLogs';
 import { extremaGenerator } from './extrema';
 import { conicsGenerator } from './conics';
 
-export const ALL_GRAPH_GENERATORS: IGraphProblemGenerator[] = [
+export const ALL_GRAPH_GENERATORS: IGraphGenerator[] = [
     ...linearGenerators,
     ...quadraticGenerators,
     ...rootCubicsGenerators,
@@ -21,9 +21,9 @@ export const ALL_GRAPH_GENERATORS: IGraphProblemGenerator[] = [
 ];
 
 function getClosestGenerator(
-  generators: IGraphProblemGenerator[], 
+  generators: IGraphGenerator[], 
   difficulty: number
-): IGraphProblemGenerator {
+): IGraphGenerator {
   return generators.reduce((prev, curr) => {
     const distPrev = Math.max(0, prev.minDifficulty - difficulty, difficulty - prev.maxDifficulty);
     const distCurr = Math.max(0, curr.minDifficulty - difficulty, difficulty - curr.maxDifficulty);

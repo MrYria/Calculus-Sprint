@@ -1,21 +1,21 @@
 import type { MathQuestion } from '../../types/math';
 import { generateRandomNumber } from '../../helper/utils';
-import type { IPowersProblemGenerator } from '../../helper/utils';
+import type { IPowerGenerator } from '../../types/generators';
 
 import { powersGenerators } from './powers';
 import { rootsGenerators } from './roots';
 import { logarithmGenerators } from './logarithm';
 
-export const ALL_POWER_GENERATORS: IPowersProblemGenerator[] = [
+export const ALL_POWER_GENERATORS: IPowerGenerator[] = [
   ...powersGenerators,
   ...rootsGenerators,
   ...logarithmGenerators,
 ];
 
 function getClosestGenerator(
-  generators: IPowersProblemGenerator[], 
+  generators: IPowerGenerator[], 
   difficulty: number
-): IPowersProblemGenerator {
+): IPowerGenerator {
   return generators.reduce((prev, curr) => {
     const distPrev = Math.max(0, prev.minDifficulty - difficulty, difficulty - prev.maxDifficulty);
     const distCurr = Math.max(0, curr.minDifficulty - difficulty, difficulty - curr.maxDifficulty);

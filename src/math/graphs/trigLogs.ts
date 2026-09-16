@@ -1,8 +1,8 @@
 import type { MathQuestion, GraphFunctionType, GraphTaskType } from '../../types/math';
 import { generateRandomNumber, formatTerm } from '../../helper/utils';
-import type { IGraphProblemGenerator } from '../../helper/utils';
+import type { IGraphGenerator } from '../../types/generators';
 
-export const logDomainBoundGenerator: IGraphProblemGenerator = {
+export const logDomainBoundGenerator: IGraphGenerator = {
     id: 'log-domain-bound',
     minDifficulty: 4.8,
     maxDifficulty: 5.8,
@@ -21,7 +21,7 @@ export const logDomainBoundGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const logEquationRootGenerator: IGraphProblemGenerator = {
+export const logEquationRootGenerator: IGraphGenerator = {
     id: 'log-equation-root',
     minDifficulty: 5.0,
     maxDifficulty: 6.0,
@@ -40,7 +40,7 @@ export const logEquationRootGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const trigAmplitudeMaxGenerator: IGraphProblemGenerator = {
+export const trigAmplitudeMaxGenerator: IGraphGenerator = {
     id: 'trig-amplitude-max',
     minDifficulty: 4.8,
     maxDifficulty: 5.8,
@@ -57,7 +57,7 @@ export const trigAmplitudeMaxGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const trigAmplitudeMinGenerator: IGraphProblemGenerator = {
+export const trigAmplitudeMinGenerator: IGraphGenerator = {
     id: 'trig-amplitude-min',
     minDifficulty: 4.8,
     maxDifficulty: 5.6,
@@ -74,7 +74,7 @@ export const trigAmplitudeMinGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const lineParabolaIntersectionGenerator: IGraphProblemGenerator = {
+export const lineParabolaIntersectionGenerator: IGraphGenerator = {
     id: 'line-parabola-intersection',
     minDifficulty: 5.2,
     maxDifficulty: 6.2,
@@ -93,7 +93,7 @@ export const lineParabolaIntersectionGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const quadraticLogRootGenerator: IGraphProblemGenerator = {
+export const quadraticLogRootGenerator: IGraphGenerator = {
     id: 'quadratic-log-root',
     minDifficulty: 5.2,
     maxDifficulty: 6.0,
@@ -112,7 +112,7 @@ export const quadraticLogRootGenerator: IGraphProblemGenerator = {
 
 
 
-export const trigLogsGenerator: IGraphProblemGenerator[] = [
+export const trigLogsGenerator: IGraphGenerator[] = [
     logDomainBoundGenerator,
     logEquationRootGenerator,
     trigAmplitudeMaxGenerator,

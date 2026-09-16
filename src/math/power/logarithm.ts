@@ -1,9 +1,9 @@
 import type { MathQuestion } from '../../types/math';
 import { generateRandomNumber } from '../../helper/utils';
-import type { IPowersProblemGenerator } from '../../helper/utils';
+import type { IPowerGenerator } from '../../types/generators';
 
 
-export const baseTwoLogGenerator: IPowersProblemGenerator = {
+export const baseTwoLogGenerator: IPowerGenerator = {
   id: 'log-base-two',
   minDifficulty: 1.5,
   maxDifficulty: 8.0,
@@ -32,7 +32,7 @@ export const baseTwoLogGenerator: IPowersProblemGenerator = {
   },
 };
 
-export const baseTenLogGenerator: IPowersProblemGenerator = {
+export const baseTenLogGenerator: IPowerGenerator = {
   id: 'log-base-ten',
   minDifficulty: 1.0,
   maxDifficulty: 7.0,
@@ -57,7 +57,7 @@ export const baseTenLogGenerator: IPowersProblemGenerator = {
   },
 };
 
-export const tableBasesLogGenerator: IPowersProblemGenerator = {
+export const tableBasesLogGenerator: IPowerGenerator = {
   id: 'log-table-bases',
   minDifficulty: 2.0,
   maxDifficulty: 7.5,
@@ -89,7 +89,7 @@ export const tableBasesLogGenerator: IPowersProblemGenerator = {
   },
 };
 
-export const logarithmGenerators: IPowersProblemGenerator[] = [
+export const logarithmGenerators: IPowerGenerator[] = [
   baseTwoLogGenerator,
   baseTenLogGenerator,
   tableBasesLogGenerator,

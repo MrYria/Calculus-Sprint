@@ -1,7 +1,8 @@
 import type { MathQuestion } from '../../types/math';
-import { generateRandomOperand, type IArithmeticProblemGenerator } from '../../helper/utils';
+import { generateRandomOperand} from '../../helper/utils';
+import type { IArithmeticGenerator } from '../../types/generators';
 
-export const substractionGenerator: IArithmeticProblemGenerator = {
+export const substractionGenerator: IArithmeticGenerator = {
     id: 'any-substraction',
     minDifficulty: 1.0,
     maxDifficulty: 7.5,

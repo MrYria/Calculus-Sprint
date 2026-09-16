@@ -1,9 +1,9 @@
 import type { MathQuestion } from '../../types/math';
 import { generateRandomNumber, getRandomMultipleOfFive } from '../../helper/utils';
-import type { IPowersProblemGenerator } from '../../helper/utils';
+import type { IPowerGenerator } from '../../types/generators';
 
 
-export const squareRootsGenerator: IPowersProblemGenerator = {
+export const squareRootsGenerator: IPowerGenerator = {
   id: 'roots-square',
   minDifficulty: 1.0,
   maxDifficulty: 8.0,
@@ -33,7 +33,7 @@ export const squareRootsGenerator: IPowersProblemGenerator = {
   },
 };
 
-export const cubeRootsGenerator: IPowersProblemGenerator = {
+export const cubeRootsGenerator: IPowerGenerator = {
   id: 'roots-cube',
   minDifficulty: 2.0,
   maxDifficulty: 7.5,
@@ -58,7 +58,7 @@ export const cubeRootsGenerator: IPowersProblemGenerator = {
   },
 };
 
-export const higherRootsGenerator: IPowersProblemGenerator = {
+export const higherRootsGenerator: IPowerGenerator = {
   id: 'roots-higher',
   minDifficulty: 3.5,
   maxDifficulty: 8.0,
@@ -87,7 +87,7 @@ export const higherRootsGenerator: IPowersProblemGenerator = {
   },
 };
 
-export const rootsGenerators: IPowersProblemGenerator[] = [
+export const rootsGenerators: IPowerGenerator[] = [
   squareRootsGenerator,
   cubeRootsGenerator,
   higherRootsGenerator,

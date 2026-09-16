@@ -1,5 +1,5 @@
 import {generateRandomNumber} from '../../helper/utils';
-import type {IArithmeticProblemGenerator} from '../../helper/utils';
+import type { IArithmeticGenerator } from '../../types/generators';
 import type { MathQuestion} from '../../types/math';
 
 import { additionGenerator } from './addition';
@@ -7,7 +7,7 @@ import { divisionGenerators } from './division';
 import { multiplicationGenerators } from './multiplication';
 import { substractionGenerator } from './subtraction';
 
-export const ALL_ARITHMETIC_GENERATORS: IArithmeticProblemGenerator[] = [
+export const ALL_ARITHMETIC_GENERATORS: IArithmeticGenerator[] = [
     additionGenerator,
     substractionGenerator,
     ...multiplicationGenerators,
@@ -15,9 +15,9 @@ export const ALL_ARITHMETIC_GENERATORS: IArithmeticProblemGenerator[] = [
 ];
 
 function getClosestGenerator(
-  generators: IArithmeticProblemGenerator[], 
+  generators: IArithmeticGenerator[], 
   difficulty: number
-): IArithmeticProblemGenerator {
+): IArithmeticGenerator {
   return generators.reduce((prev, curr) => {
     const distPrev = Math.max(0, prev.minDifficulty - difficulty, difficulty - prev.maxDifficulty);
     const distCurr = Math.max(0, curr.minDifficulty - difficulty, difficulty - curr.maxDifficulty);

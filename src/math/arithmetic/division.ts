@@ -1,8 +1,8 @@
 import type { MathQuestion } from '../../types/math';
-import type { IArithmeticProblemGenerator } from '../../helper/utils';
+import type { IArithmeticGenerator } from '../../types/generators';
 import { generateRandomNumber } from '../../helper/utils';
 
-export const tableDivisionGenerator: IArithmeticProblemGenerator = {
+export const tableDivisionGenerator: IArithmeticGenerator = {
     id: 'table-division',
     minDifficulty: 1.0,
     maxDifficulty: 2.5,
@@ -20,7 +20,7 @@ export const tableDivisionGenerator: IArithmeticProblemGenerator = {
     },
 }
 
-export const multiBySingleDivisionGenerator: IArithmeticProblemGenerator = {
+export const multiBySingleDivisionGenerator: IArithmeticGenerator = {
     id: 'multi-by-single-division',
     minDifficulty: 2.0,
     maxDifficulty: 5.3,
@@ -39,7 +39,7 @@ export const multiBySingleDivisionGenerator: IArithmeticProblemGenerator = {
     },
 }
 
-export const twoByTwoDivisionGenerator: IArithmeticProblemGenerator = {
+export const twoByTwoDivisionGenerator: IArithmeticGenerator = {
     id: 'two-by-two-division',
     minDifficulty: 4.0,
     maxDifficulty: 8.0,
@@ -61,7 +61,7 @@ export const twoByTwoDivisionGenerator: IArithmeticProblemGenerator = {
     },
 }
 
-export const hardcoreDivisionGenerator: IArithmeticProblemGenerator = {
+export const hardcoreDivisionGenerator: IArithmeticGenerator = {
     id: 'hardcore-division',
     minDifficulty: 6.5,
     maxDifficulty: 8.0,
@@ -79,7 +79,7 @@ export const hardcoreDivisionGenerator: IArithmeticProblemGenerator = {
     },
 }
 
-export const divisionGenerators: IArithmeticProblemGenerator[] = [
+export const divisionGenerators: IArithmeticGenerator[] = [
   tableDivisionGenerator,
   multiBySingleDivisionGenerator,
   twoByTwoDivisionGenerator,

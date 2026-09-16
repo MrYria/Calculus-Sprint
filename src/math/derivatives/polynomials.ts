@@ -1,8 +1,8 @@
 import type { MathQuestion } from '../../types/math';
 import { generateRandomNumber, formatTerm, generateNonZeroRandomNumber } from '../../helper/utils';
-import type { IDerivativesProblemsGenerator } from '../../helper/utils';
+import type { IDerivativeGenerator } from '../../types/generators';
 
-export const linearMonomialDerivativeGenerator: IDerivativesProblemsGenerator = {
+export const linearMonomialDerivativeGenerator: IDerivativeGenerator = {
     id: 'derivative-linear-monomial',
     minDifficulty: 1.0,
     maxDifficulty: 2.2,
@@ -41,7 +41,7 @@ export const linearMonomialDerivativeGenerator: IDerivativesProblemsGenerator = 
 
 }
 
-export const quadraticCubicDerivativeGenerator: IDerivativesProblemsGenerator = {
+export const quadraticCubicDerivativeGenerator: IDerivativeGenerator = {
     id: 'derivative-quadratic-cubic',
     minDifficulty: 2.0,
     maxDifficulty: 3.5,
@@ -73,7 +73,7 @@ export const quadraticCubicDerivativeGenerator: IDerivativesProblemsGenerator = 
     }
 }
 
-export const higherPolynomialsDerivativeGenerator: IDerivativesProblemsGenerator = {
+export const higherPolynomialsDerivativeGenerator: IDerivativeGenerator = {
     id: 'derivative-higher-poly',
     minDifficulty: 3.2,
     maxDifficulty: 5.0,
@@ -107,7 +107,7 @@ export const higherPolynomialsDerivativeGenerator: IDerivativesProblemsGenerator
     }
 }
 
-export const polynomialDerivatives: IDerivativesProblemsGenerator[] = [
+export const polynomialDerivatives: IDerivativeGenerator[] = [
     linearMonomialDerivativeGenerator,
     quadraticCubicDerivativeGenerator,
     higherPolynomialsDerivativeGenerator,

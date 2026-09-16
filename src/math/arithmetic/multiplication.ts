@@ -1,8 +1,8 @@
 import type { MathQuestion } from '../../types/math';
-import type { IArithmeticProblemGenerator } from '../../helper/utils';
+import type { IArithmeticGenerator } from '../../types/generators';
 import { generateRandomNumber } from '../../helper/utils';
 
-export const tableMultiplicationGenerator: IArithmeticProblemGenerator = {
+export const tableMultiplicationGenerator: IArithmeticGenerator = {
     id: 'table-multiplication',
     minDifficulty: 1.0,
     maxDifficulty: 2.5,
@@ -20,7 +20,7 @@ export const tableMultiplicationGenerator: IArithmeticProblemGenerator = {
     },
 }
 
-export const multiBySingleMultiplicationGenerator: IArithmeticProblemGenerator = {
+export const multiBySingleMultiplicationGenerator: IArithmeticGenerator = {
     id: 'multi-by-single-multiplication',
     minDifficulty: 2.0,
     maxDifficulty: 5.3,
@@ -39,7 +39,7 @@ export const multiBySingleMultiplicationGenerator: IArithmeticProblemGenerator =
     },
 }
 
-export const twoByTwoMultiplicationGenerator: IArithmeticProblemGenerator = {
+export const twoByTwoMultiplicationGenerator: IArithmeticGenerator = {
     id: 'two-by-two-multiplication',
     minDifficulty: 4.0,
     maxDifficulty: 8.0,
@@ -61,7 +61,7 @@ export const twoByTwoMultiplicationGenerator: IArithmeticProblemGenerator = {
     },
 }
 
-export const hardcoreMultiplicationGenerator: IArithmeticProblemGenerator = {
+export const hardcoreMultiplicationGenerator: IArithmeticGenerator = {
     id: 'hardcore-multiplication',
     minDifficulty: 6.5,
     maxDifficulty: 8.0,
@@ -79,7 +79,7 @@ export const hardcoreMultiplicationGenerator: IArithmeticProblemGenerator = {
     },
 }
 
-export const multiplicationGenerators: IArithmeticProblemGenerator[] = [
+export const multiplicationGenerators: IArithmeticGenerator[] = [
   tableMultiplicationGenerator,
   multiBySingleMultiplicationGenerator,
   twoByTwoMultiplicationGenerator,

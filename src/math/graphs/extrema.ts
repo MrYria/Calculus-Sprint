@@ -1,8 +1,8 @@
 import type { MathQuestion, GraphFunctionType, GraphTaskType } from '../../types/math';
 import { generateRandomNumber, formatTerm, generateNonZeroRandomNumber } from '../../helper/utils';
-import type { IGraphProblemGenerator } from '../../helper/utils';
+import type { IGraphGenerator } from '../../types/generators';
 
-export const cubicInflectionPointGenerator: IGraphProblemGenerator = {
+export const cubicInflectionPointGenerator: IGraphGenerator = {
     id: 'cubic-inflection-point',
     minDifficulty: 6.0,
     maxDifficulty: 7.0,
@@ -22,7 +22,7 @@ export const cubicInflectionPointGenerator: IGraphProblemGenerator = {
     },
 }
         
-export const cubicLocalExtremumGenerator: IGraphProblemGenerator = {
+export const cubicLocalExtremumGenerator: IGraphGenerator = {
     id: 'cubic-local-extremum',
     minDifficulty: 6.2,
     maxDifficulty: 7.2,
@@ -43,7 +43,7 @@ export const cubicLocalExtremumGenerator: IGraphProblemGenerator = {
     }
 }
 
-export const quarticMinPointGenerator: IGraphProblemGenerator = {
+export const quarticMinPointGenerator: IGraphGenerator = {
     id: 'quartic-min-point',
     minDifficulty: 5.8,
     maxDifficulty: 6.6,
@@ -59,7 +59,7 @@ export const quarticMinPointGenerator: IGraphProblemGenerator = {
     }
 }
 
-export const rationalHoleRootGenerator: IGraphProblemGenerator = {
+export const rationalHoleRootGenerator: IGraphGenerator = {
     id: 'rational-hole-root',
     minDifficulty: 6.0,
     maxDifficulty: 6.8,
@@ -78,7 +78,7 @@ export const rationalHoleRootGenerator: IGraphProblemGenerator = {
     }   
 }
 
-export const monotoneBoundaryGenerator: IGraphProblemGenerator = {
+export const monotoneBoundaryGenerator: IGraphGenerator = {
     id: 'monotone-boundary',
     minDifficulty: 5.8,
     maxDifficulty: 6.8,
@@ -94,7 +94,7 @@ export const monotoneBoundaryGenerator: IGraphProblemGenerator = {
     },
 }
 
-export const cubicVietaRootsSumGenerator: IGraphProblemGenerator = {
+export const cubicVietaRootsSumGenerator: IGraphGenerator = {
     id: 'cubic-vieta-roots-sum',
     minDifficulty: 6.2,
     maxDifficulty: 7.0,
@@ -116,7 +116,7 @@ export const cubicVietaRootsSumGenerator: IGraphProblemGenerator = {
 }
 
 
-export const extremaGenerator: IGraphProblemGenerator[] = [
+export const extremaGenerator: IGraphGenerator[] = [
     cubicInflectionPointGenerator,
     cubicLocalExtremumGenerator,
     quarticMinPointGenerator,
