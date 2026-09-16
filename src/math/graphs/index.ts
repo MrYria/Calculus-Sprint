@@ -33,7 +33,7 @@ function getClosestGenerator(
 
 export function generateGraphsQuestion(difficulty: number): MathQuestion {
   if (ALL_GRAPH_GENERATORS.length === 0) {
-    throw new Error("No power generators available");
+    throw new Error("No graph generators available");
   }
 
   const available = ALL_GRAPH_GENERATORS.filter(

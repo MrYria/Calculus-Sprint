@@ -27,7 +27,7 @@ function getClosestGenerator(
 
 export function generateArithmeticQuestion(difficulty: number): MathQuestion {
   if (ALL_ARITHMETIC_GENERATORS.length === 0) {
-    throw new Error("No power generators available");
+    throw new Error("No arithmetic generators available");
   }
 
   const available = ALL_ARITHMETIC_GENERATORS.filter(
