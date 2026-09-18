@@ -67,8 +67,8 @@ export const hardcoreMultiplicationGenerator: IArithmeticGenerator = {
     maxDifficulty: 8.0,
     taskType: 'Multiplication',
     generate(difficulty): MathQuestion {
-        let num1 = generateRandomNumber(11, 50);
-        let num2 = generateRandomNumber(100, 1500);
+        const num1 = generateRandomNumber(11, 50);
+        const num2 = generateRandomNumber(100, 1500);
         const answer = num1 * num2;
         return {
             id: crypto.randomUUID(),

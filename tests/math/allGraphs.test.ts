@@ -13,7 +13,6 @@ describe('Conics (Graphs) Generators Quality & Stress Test', () => {
 
         expect(Number.isFinite(question.correctAnswer)).toBe(true);
         expect(Number.isNaN(question.correctAnswer)).toBe(false);
-
         expect(Number.isInteger(question.correctAnswer)).toBe(true);
 
         expect(question.latex).not.toMatch(/\b0x\b/);

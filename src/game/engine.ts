@@ -1,9 +1,9 @@
 import type { Topic, MathQuestion } from '../types/math';
-import { generateArithmeticQuestion } from '../math/arithmetic/';
-import { generatePowersQuestion } from '../math/power';
-import { generateDerivativesQuestion } from '../math/derivatives';
-import { generateIntegralsQuestion } from '../math/integrals';
-import { generateGraphsQuestion } from '../math/graphs/';
+import { generateArithmeticQuestion } from '../math/arithmetic/index';
+import { generatePowersQuestion } from '../math/power/index';
+import { generateDerivativesQuestion } from '../math/derivatives/index';
+import { generateIntegralsQuestion } from '../math/integrals/index';
+import { generateGraphsQuestion } from '../math/graphs/index';
 import { generateRandomNumber } from '../helper/utils';
 
 export function getMathQuestion(topic: Topic | 'all_mix', difficulty: number): MathQuestion {
