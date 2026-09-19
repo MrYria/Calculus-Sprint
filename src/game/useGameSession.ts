@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import type { IGameConfig, IGameResults, IAnswerRecord } from '../types/game';
 import type { MathQuestion } from '../types/math';
 import { getMathQuestion } from './engine';
@@ -30,27 +30,20 @@ export function useGameSession(
   const [wrongCount, setWrongCount] = useState<number>(0);
   const [answersHistory, setAnswersHistory] = useState<IAnswerRecord[]>([]);
   const [status, setStatus] = useState<'idle' | 'correct' | 'wrong'>('idle');
-
-
+  
+  const questionStartTime = useRef<number | null>(null);
 
   useEffect(() => {
-    if (config.mode === 'training' || timeLeft <= 0) return;
+    questionStartTime.current = Date.now();
+  }, []);
 
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          finishGame();
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
+  const loadNextQuestion = (nextDifficulty: number) => {
+    const nextQuestion = getMathQuestion(config.topic, nextDifficulty);
+    questionStartTime.current = Date.now();
+    setQuestion(nextQuestion);
+  };
 
-    return () => clearInterval(timer);
-  }, [config.mode, timeLeft]);
-
-  const finishGame = () => {
+  const finishGame = useCallback(() => {
     const totalAnswered = correctCount + wrongCount;
     const accuracy = totalAnswered > 0 ? Math.round((correctCount / totalAnswered) * 100) : 0;
     const timeSpent = config.timeLimit === 'infinite' ? 0 : config.timeLimit - timeLeft;
@@ -67,7 +60,36 @@ export function useGameSession(
       timeSpent,
       answersHistory,
     });
-  };
+  }, [
+    answersHistory,
+    config.timeLimit,
+    config.topic,
+    correctCount,
+    difficulty,
+    maxStreak,
+    onGameOver,
+    score,
+    timeLeft,
+    wrongCount,
+  ]);
+
+  useEffect(() => {
+    if (config.mode === 'training' || timeLeft <= 0) return;
+
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [config.mode, timeLeft]);
+
+  useEffect(() => {
+    if (config.mode === 'sprint' && timeLeft === 0) {
+      finishGame();
+    }
+  }, [config.mode, timeLeft, finishGame]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,6 +97,9 @@ export function useGameSession(
 
     const parsed = Number(userAnswer.trim());
     const isCorrect = parsed === question.correctAnswer;
+
+    const startedAt = questionStartTime.current;
+    const timeSpentMs = startedAt === null ? 0 : Date.now() - startedAt;
 
     const maxAllowedDifficulty = config.mode === 'training'
       ? Math.floor(config.initialDifficulty) + 0.9
@@ -85,6 +110,7 @@ export function useGameSession(
       latex: question.latex,
       userAnswer: parsed,
       correctAnswer: question.correctAnswer,
+      timeSpentMs,
       isCorrect,
       difficulty,
     };
@@ -103,9 +129,7 @@ export function useGameSession(
         Math.round((difficulty + 0.3) * 10) / 10
       );
       setDifficulty(nextDifficulty);
-      setQuestion(getMathQuestion(config.topic, nextDifficulty));
-
-
+      loadNextQuestion(nextDifficulty);
 
       const nextLevel = Math.floor(nextDifficulty);
       if (nextLevel > highestLevelReached) {
@@ -126,7 +150,7 @@ export function useGameSession(
         Math.round((difficulty - 0.4) * 10) / 10
       );
       setDifficulty(nextDifficulty);
-      setQuestion(getMathQuestion(config.topic, nextDifficulty));
+      loadNextQuestion(nextDifficulty);
       setUserAnswer('');
     }
   };
@@ -142,4 +166,6 @@ export function useGameSession(
     status,
     handleSubmit,
   };
+
+  
 }

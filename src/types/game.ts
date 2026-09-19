@@ -42,6 +42,7 @@ export interface IAnswerRecord {
   latex: string;
   userAnswer: number;
   correctAnswer: number;
+  timeSpentMs: number;
   isCorrect: boolean;
   difficulty: number;
 }

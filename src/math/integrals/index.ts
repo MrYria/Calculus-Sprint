@@ -28,7 +28,7 @@ function getClosestGenerator(
 
 export function generateIntegralsQuestion(difficulty: number): MathQuestion {
   if (ALL_INTEGRAL_GENERATORS.length === 0) {
-    throw new Error("No graph generators available");
+    throw new Error("No integral generators available");
   }
 
   const available = ALL_INTEGRAL_GENERATORS.filter(
