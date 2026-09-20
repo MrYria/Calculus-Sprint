@@ -1,15 +1,12 @@
-import { PostgresDatabase } from '../src/config/db.js'
+import dotenv from 'dotenv';
+import { App } from '../src/app.js';
+import { PostgresDatabase } from './config/db.js';
 
-async function main() {
-  const db = PostgresDatabase.getInstance();
+dotenv.config();
 
-  console.log('Starting test connection...');
-  
-  await db.testConnection();
-  await db.close();
-}
+const PORT = Number(process.env.PORT) || 5000;
+const db = PostgresDatabase.getInstance();
 
-main().catch((err) => {
-  console.error('Crash error:', err);
-  process.exit(1);
-});
+const server = new App(PORT, db);
+await db.testConnection();
+server.listen();

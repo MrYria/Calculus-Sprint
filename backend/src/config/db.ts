@@ -22,12 +22,24 @@ export class PostgresDatabase implements IDatabase {
             throw new Error('DATABASE_URL is not defined in .env file!');
         }
 
+        const isProduction = process.env.NODE_ENV === 'production';
+
         this.pool = new Pool({
             connectionString,
-            ssl: {
-                rejectUnauthorized: false,
-            }
+            ssl: this.getSslConfig(isProduction),
         });
+    }
+
+    private getSslConfig(isProduction: boolean) {
+        if (isProduction) {
+            return {
+                rejectUnauthorized: true,
+                ca: process.env.DB_CA_CERT && process.env.DB_CA_CERT.trim() !== '' ? process.env.DB_CA_CERT : undefined,
+            }
+        }
+        return {
+            rejectUnauthorized: false,
+        };
     }
 
     public static getInstance(): PostgresDatabase {
@@ -69,6 +81,7 @@ export class PostgresDatabase implements IDatabase {
 
     public async close(): Promise<void> {
         await this.pool.end();
+        PostgresDatabase.instance = null;
         console.log('🔌 Database connection pool closed.');
 
     }
