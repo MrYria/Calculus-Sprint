@@ -82,7 +82,7 @@ export class PostgresDatabase implements IDatabase {
     public async close(): Promise<void> {
         await this.pool.end();
         PostgresDatabase.instance = null;
-        console.log('🔌 Database connection pool closed.');
+        console.log(' Database connection pool closed.');
 
     }
 

@@ -1,6 +1,7 @@
 import express, { type Application, type Request, type Response } from 'express';
 import cors from 'cors';
 import { PostgresDatabase } from '../src/config/db.js';
+import { authRouter } from './modules/auth/auth.routers.js';
 
 export class App {
     public app : Application;
@@ -19,7 +20,7 @@ export class App {
 
     private initializeRouters(): void {
         const db = PostgresDatabase.getInstance();
-        this.app.get('/api/health', async (_req: Request, res: Response) => {
+        this.app.get('/api/connection', async (_req: Request, res: Response) => {
             try {
                 await db.query('SELECT 1');
                 res.status(200).json({
@@ -36,13 +37,14 @@ export class App {
                 });
             }
         });
+        this.app.use('/api/auth', authRouter);
     }
 
     public listen(): void{
         this.app.listen(this.port, () => {
             console.log(`=================================`);
             console.log(`Server is running on port ${this.port}`);
-            console.log(`Connection check: http://localhost:${this.port}/api/health`);
+            console.log(`Connection check: http://localhost:${this.port}/api/connection`);
             console.log(`=================================`);
         });
     }
