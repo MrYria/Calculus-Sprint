@@ -2,6 +2,8 @@ import express, { type Application, type Request, type Response } from 'express'
 import cors from 'cors';
 import { PostgresDatabase } from '../src/config/db.js';
 import { authRouter } from './modules/auth/auth.routers.js';
+import { gameRouter } from './modules/game/game.routes.js';
+import { leaderboardRouter } from './modules/leaderboard/leaderboard.routes.js';
 
 export class App {
     public app : Application;
@@ -38,6 +40,8 @@ export class App {
             }
         });
         this.app.use('/api/auth', authRouter);
+        this.app.use('/api/game', gameRouter);
+        this.app.use('/api/leaderboard', leaderboardRouter);
     }
 
     public listen(): void{

@@ -1,3 +1,5 @@
+import type { Request } from 'express';
+
 export interface IUser {
     user_id: number;
     user_uuid: string;
@@ -9,6 +11,15 @@ export interface IUser {
 }
 
 export type IUserPublic = Omit<IUser, 'hashpass'>;
+
+export interface AuthUserPayload {
+  userId: number;
+  username: string;
+}
+
+export interface AuthenticatedRequest extends Request {
+  user?: AuthUserPayload;
+}
 
 export interface AuthResult {
     user: IUserPublic;
