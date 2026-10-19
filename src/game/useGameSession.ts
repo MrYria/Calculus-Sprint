@@ -4,6 +4,7 @@ import type { MathQuestion } from '../types/math';
 import { getMathQuestion } from './engine';
 import { getBonusTimeForLevel } from './difficulty';
 import { calculateScore } from './scoring';
+import { finishGameApi, startGameApi } from '../api/game.api';
 
 export function useGameSession(
   config: IGameConfig,
@@ -30,8 +31,11 @@ export function useGameSession(
   const [wrongCount, setWrongCount] = useState<number>(0);
   const [answersHistory, setAnswersHistory] = useState<IAnswerRecord[]>([]);
   const [status, setStatus] = useState<'idle' | 'correct' | 'wrong'>('idle');
-  
+  const [gameUuid, setGameUuid] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+
   const questionStartTime = useRef<number | null>(null);
+  const isFinishedRef = useRef<boolean>(false);
 
   useEffect(() => {
     questionStartTime.current = Date.now();
@@ -43,13 +47,31 @@ export function useGameSession(
     setQuestion(nextQuestion);
   };
 
-  const finishGame = useCallback(() => {
+  const finishGame = useCallback(async () => {
+    if (isFinishedRef.current) return;
+    isFinishedRef.current = true;
+    setIsSubmitting(true);
+
+    let finalScore = score;
+
+    if (config.mode === 'sprint' && gameUuid) {
+      try {
+        const response = await finishGameApi(gameUuid, answersHistory);
+        finalScore = response.verifiedScore;
+      } catch (err) {
+        console.error('Failed to verify game on server, using local score:', err);
+      }
+    }
+
     const totalAnswered = correctCount + wrongCount;
     const accuracy = totalAnswered > 0 ? Math.round((correctCount / totalAnswered) * 100) : 0;
     const timeSpent = config.timeLimit === 'infinite' ? 0 : config.timeLimit - timeLeft;
 
+    setIsSubmitting(false);
+
+
     onGameOver({
-      score,
+      score: finalScore,
       correctAnswers: correctCount,
       wrongAnswers: wrongCount,
       totalQuestions: totalAnswered,
@@ -62,10 +84,12 @@ export function useGameSession(
     });
   }, [
     answersHistory,
+    config.mode,
     config.timeLimit,
     config.topic,
     correctCount,
     difficulty,
+    gameUuid,
     maxStreak,
     onGameOver,
     score,
@@ -84,6 +108,14 @@ export function useGameSession(
 
     return () => clearInterval(timer);
   }, [config.mode, timeLeft]);
+
+  useEffect(() => {
+    if (config.mode === 'sprint') {
+      startGameApi(config.topic)
+        .then((session) => setGameUuid(session.game_uuid))
+        .catch((err) => console.error('Failed to init game on server:', err));
+    }
+  }, [config.mode, config.topic]);
 
   useEffect(() => {
     if (config.mode === 'sprint' && timeLeft === 0) {
@@ -165,7 +197,7 @@ export function useGameSession(
     streak,
     status,
     handleSubmit,
+    isSubmitting,
+    finishGame,
   };
-
-  
 }
